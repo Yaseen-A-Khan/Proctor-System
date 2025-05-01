@@ -1,3 +1,4 @@
+// HERE GOES THE AUTHENTICATION CODE!!
 // import { useState, useEffect } from 'react';
 // import { onAuthStateChanged } from 'firebase/auth'; // or your auth service
 // import { auth } from '@/config/firebase'; // adjust as needed
