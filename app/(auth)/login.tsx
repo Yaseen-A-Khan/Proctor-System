@@ -1,15 +1,26 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet, View, TouchableOpacity, TextInput, KeyboardAvoidingView } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-import { MaterialIcons, FontAwesome, Ionicons } from '@expo/vector-icons';
+import { useAuth } from '@/context/AuthContext';
+import { FontAwesome, Ionicons, MaterialIcons } from '@expo/vector-icons';
+import { Image } from 'expo-image';
 import { useState } from 'react';
+import { KeyboardAvoidingView, Platform, StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
 import Animated, { FadeIn, FadeInDown } from 'react-native-reanimated';
 
 export default function AuthScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const auth = useAuth();
+
+  if (!auth) {
+    // TODO: Replace with a proper loading component or error message
+    return (
+      <View style={[styles.container, { justifyContent: 'center', alignItems: 'center' }]}>
+        <ThemedText>Loading authentication...</ThemedText>
+      </View>
+    );
+  }
+  const { signIn } = auth;
 
   return (
     <KeyboardAvoidingView 
@@ -75,7 +86,7 @@ export default function AuthScreen() {
 
         {/* Sign In Button */}
         <Animated.View entering={FadeInDown.duration(800).delay(400)}>
-          <TouchableOpacity style={styles.signInButton}>
+          <TouchableOpacity style={styles.signInButton} onPress={signIn}>
             <ThemedText style={styles.signInButtonText}>Sign In</ThemedText>
           </TouchableOpacity>
         </Animated.View>
