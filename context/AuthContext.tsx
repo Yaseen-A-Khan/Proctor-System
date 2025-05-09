@@ -31,9 +31,9 @@ function useProtectedRoute(user: User | null | undefined) {
         ) {
             // Redirect to the sign-in page.
             router.replace("/login");
-        } else if (user && rootSegment !== "(tabs)") {
+        } else if (user && rootSegment !== "(app)") {
             // Redirect away from the sign-in page.
-            router.replace("/(tabs)");
+            router.replace("/(app)");
         }
     }, [user, rootSegment]);
 }

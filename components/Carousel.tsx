@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import {
     Dimensions,
     FlatList,
@@ -27,6 +27,12 @@ function Carousel<T>({ data, renderItem }: CarouselProps<T>) {
 
   const viewConfigRef = useRef({ viewAreaCoveragePercentThreshold: 50 });
 
+  const internalRenderItem = useCallback((info: ListRenderItemInfo<T>) => (
+    <View style={{ width: width }}>
+      {renderItem(info)}
+    </View>
+  ), [renderItem]);
+
   return (
     <View style={styles.container}>
       <FlatList
@@ -38,7 +44,7 @@ function Carousel<T>({ data, renderItem }: CarouselProps<T>) {
         showsHorizontalScrollIndicator={false}
         onViewableItemsChanged={onViewRef.current}
         viewabilityConfig={viewConfigRef.current}
-        renderItem={renderItem}
+        renderItem={internalRenderItem}
       />
       <View style={styles.pagination}>
         {data.map((_, index) => (

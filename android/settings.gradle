@@ -32,6 +32,8 @@ extensions.configure(com.facebook.react.ReactSettingsExtension) { ex ->
 expoAutolinking.useExpoModules()
 
 rootProject.name = 'MyExpoApp'
+include ':react-native-webview'
+project(':react-native-webview').projectDir = new File(rootDir, '../node_modules/react-native-webview/android')
 
 expoAutolinking.useExpoVersionCatalog()
 

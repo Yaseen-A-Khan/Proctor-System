@@ -68,28 +68,28 @@ export default function Layout() {
         headerRight: SignOutButton
       }}>
       <Stack.Screen
-        name="explore"
-        options={{
-          headerTitle: "My App",
-          headerTitleAlign: "center",
-          headerShadowVisible: false,
-          headerStyle: {
-            backgroundColor: "#fff",
-          },
-          headerTintColor: "#000",
-        }}
-        />
-      <Stack.Screen
         name="index"
         options={{
           headerTitle: "Home",
           headerTitleAlign: "center",
           headerShadowVisible: false,
           headerStyle: {
-            backgroundColor: "#fff",
+            backgroundColor: "#000",
           },
-          headerTintColor: "#000",
+          headerTintColor: "#fff",
         }}
+        />
+        <Stack.Screen
+          name="calendar"
+          options={{
+            headerTitle: "Calendar",
+            headerTitleAlign: "center",
+            headerShadowVisible: false,
+            headerStyle: {
+              backgroundColor: "#000",
+            },
+            headerTintColor: "#fff",
+          }}
         />
     </Stack>
     </GestureHandlerRootView>
@@ -119,6 +119,8 @@ function SignOutButton() {
               display: "flex",
               alignItems: "center",
               paddingRight: 8,
+              backgroundColor: "gray",
+              borderRadius: 8,
             }}
         >
           <Text
@@ -126,11 +128,12 @@ function SignOutButton() {
                 fontWeight: "normal",
                 paddingHorizontal: 8,
                 fontSize: 16,
+                color: "#fff",
               }}
           >
             Sign Out
           </Text>
-          <FontAwesome name="sign-out" size={24} color="black" />
+          <FontAwesome name="sign-out" size={24} color="white" />
         </Pressable>
       </Link>
   );
