@@ -1,8 +1,16 @@
+import { useAuth } from '@/context/AuthContext';
+import { useRouter } from 'expo-router';
 import React from 'react';
 import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function ProfileScreen () {
+    const auth = useAuth();
+    const router = useRouter();
+    if (!auth) {
+        return null;
+    }
+    const { signOut } = auth
     // Dummy data - replace with actual user data
     const user = {
         name: 'John Doe',
@@ -17,8 +25,9 @@ export default function ProfileScreen () {
     };
 
     const handleLogout = () => {
-        // Implement logout logic
-        console.log('Logout Tapped');
+        // Perform logout action
+        signOut();
+        router.replace('/(auth)/login');
     };
 
     return (

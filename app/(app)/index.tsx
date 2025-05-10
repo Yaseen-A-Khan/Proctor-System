@@ -28,21 +28,21 @@ export default function HomeScreen() {
       case 'Profile':
         router.push('/profile');
         break;
-      // case 'Chat':
-      //   router.push('/chat');
-      //   break;
+      case 'Chat':
+        router.push('/chat');
+        break;
       case 'Scoreboard':
         router.push('/scoreboard');
         break;
-      // case 'Performance':
-      //   router.push('/performance');
-      //   break;
-      // case 'Opportunities':
-      //   router.push('/opportunities');
-      //   break;
-      // case 'Documents':
-      //   router.push('/documents');
-      //   break;
+      case 'Performance':
+        router.push('/performance');
+        break;
+      case 'Opportunities':
+        router.push('/opportunities');
+        break;
+      case 'Documents':
+        router.push('/documents');
+        break;
       default:
         console.log('Unknown option pressed');
     }
