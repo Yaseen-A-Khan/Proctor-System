@@ -22,18 +22,18 @@ export default function HomeScreen() {
       case 'Calendar':
         router.push('/(app)/calendar');
         break;
-      // case 'Announcements':
-      //   router.push('/announcements');
-      //   break;
-      // case 'Profile':
-      //   router.push('/profile');
-      //   break;
+      case 'Announcements':
+        router.push('/(app)/announcements');
+        break;
+      case 'Profile':
+        router.push('/profile');
+        break;
       // case 'Chat':
       //   router.push('/chat');
       //   break;
-      // case 'Scoreboard':
-      //   router.push('/scoreboard');
-      //   break;
+      case 'Scoreboard':
+        router.push('/scoreboard');
+        break;
       // case 'Performance':
       //   router.push('/performance');
       //   break;

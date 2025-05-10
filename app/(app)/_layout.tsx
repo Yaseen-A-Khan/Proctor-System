@@ -63,10 +63,7 @@ export default function Layout() {
   return (
     <GestureHandlerRootView style={{flex: 1}}>
 
-    <Stack
-      screenOptions={{
-        headerRight: SignOutButton
-      }}>
+    <Stack>
       <Stack.Screen
         name="index"
         options={{
@@ -77,12 +74,50 @@ export default function Layout() {
             backgroundColor: "#000",
           },
           headerTintColor: "#fff",
+          headerRight: SignOutButton
         }}
+        
         />
         <Stack.Screen
           name="calendar"
           options={{
             headerTitle: "Calendar",
+            headerTitleAlign: "center",
+            headerShadowVisible: false,
+            headerStyle: {
+              backgroundColor: "#000",
+            },
+            headerTintColor: "#fff",
+          }}
+        />
+        <Stack.Screen
+          name="announcements"
+          options={{
+            headerTitle: "Announcements",
+            headerTitleAlign: "center",
+            headerShadowVisible: false,
+            headerStyle: {
+              backgroundColor: "#000",
+            },
+            headerTintColor: "#fff",
+          }}
+        />
+        <Stack.Screen
+          name="profile"
+          options={{
+            headerTitle: "Profile",
+            headerTitleAlign: "center",
+            headerShadowVisible: false,
+            headerStyle: {
+              backgroundColor: "#000",
+            },
+            headerTintColor: "#fff",
+          }}
+        />
+        <Stack.Screen
+          name="scoreboard"
+          options={{
+            headerTitle: "Scoreboard",
             headerTitleAlign: "center",
             headerShadowVisible: false,
             headerStyle: {

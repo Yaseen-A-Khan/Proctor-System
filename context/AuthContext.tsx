@@ -54,7 +54,6 @@ export function AuthProvider(props: AuthProviderProps) {
 
     React.useEffect(() => {
         getItem().then((json) => {
-            console.log("json", json);
             if (json != null) {
                 setAuth(JSON.parse(json) as User);
             } else {
